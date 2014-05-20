@@ -1,6 +1,7 @@
 <html>
   <head>
-    <title>HACK4MED</title>
+    <title>Map Km0Maps</title>
+	<link rel="icon" href="immagini/Logo.png" type="image/png" />
      <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
      <meta charset="utf-8">
      
