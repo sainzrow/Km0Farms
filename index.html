@@ -1,0 +1,155 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+	<title>HomePage Km0Maps</title>
+	<link rel="icon" href="immagini/Logo.png" type="image/png" />
+	<style>	  
+		html, body, #map-canvas
+		{
+			height:100%;
+			background:#a6cb53;
+			margin: 0px;
+			padding: 0px
+		}
+		#infobox 
+		{
+			color:#FFF;
+			font-family:Arial, Helvetica, sans-serif;
+			font-size:12px;
+			padding: .5em 1em;
+			text-align:center;
+		}
+		@font-face 
+		{
+			font-family: "Hangyaboly";
+			src: url('Fonts/541625977-Hangyaboly.eot');
+			src: url('Fonts/541625977-Hangyaboly.eot?#iefix') format('embedded-opentype'),
+			url('Fonts/541625977-Hangyaboly.svg#Hangyaboly') format('svg'),
+			url('Fonts/541625977-Hangyaboly.woff') format('woff'),
+			url('Fonts/541625977-Hangyaboly.ttf') format('truetype');
+			font-weight: normal;
+			font-style: normal;
+		}
+		button.css3button 
+		{
+			font-family: Hangyaboly;
+			font-size: 20px;
+			color: #ffffff;
+			padding: 10px 20px;
+			background: -moz-linear-gradient(
+				top,
+				#558836 0%,
+				#558836);
+			background: -webkit-gradient(
+				linear, left top, left bottom,
+				from(#558836),
+				to(#558836));
+			-moz-border-radius: 10px;
+			-webkit-border-radius: 10px;
+			border-radius: 10px;
+			border: 3px solid #558836;
+			-moz-box-shadow:
+				0px 1px 3px rgba(000,000,000,0.5),
+				inset 0px 0px 3px rgba(85,136,54,1);
+			-webkit-box-shadow:
+				0px 1px 3px rgba(000,000,000,0.5),
+				inset 0px 0px 3px rgba(85,136,54,1);
+			box-shadow:
+				0px 1px 3px rgba(000,000,000,0.5),
+				inset 0px 0px 3px rgba(85,136,54,1);
+			text-shadow:
+				0px -1px 0px rgba(000,000,000,0.2),
+				0px 1px 0px rgba(85,136,54,1);
+		}
+		h1 { text-align: center}
+
+		</style>
+</head>
+
+<body>	
+<img src="immagini/sfondo.jpg" style="position:absolute; left:0%; top:0%; width:100%;" alt="" />
+<img src="immagini/sfondo2.jpg" style="position:absolute; width:100%; left:0%; top:100.5%" alt="" />
+<img src="immagini/sfondo3.jpg" style="position:absolute; width:100%; left:0%; top:310%" alt="" />
+
+<div class="scroll" style="position:absolute; left:10%; top:11%; width:80%; height:89%; background:#a6cb53; opacity:0.7; background:#a6cb53;"></div>
+    
+	<h1 id="intro" style="position:absolute; left:40%; font-family:'Hangyaboly'; font-size:48px; font-weight:bold; color: #000; position:absolute; top:13%;">Introduction</h1>
+	<p style="position:absolute; color:#fff; top:25%; font-size:14px; left:15%; width:70%; text-align:justify; ">The farming called Km Zero is a filosofy of sustainable consumption: farms are opening doors to customers allowing them to buy their own stuff without 
+	having to go through intermediaries.<br/> This phenomenon known as "Farmers Market" is becoming increasingly popular in Italy and in the world. <br/>
+	It is contrasting with the globalization because that products Km Zero, by definition, can't "travel" so much, and, to be such, they
+	can't exceede 70Km from the farming place.<br/>
+	The establishment of that kind of commercial distribution is the subject, nowadays in legislation, although in many Regions, like Veneto, have already approved
+	the law that manages foods Km Zero. <br/>There are many advantages for this kind of market:<br/>
+	- economic: the absence of intermidiates and the lack of the road trasport make prices lower at least by 30%.<br/>
+	- enviormental: the very low packages and the lack of the transport make the CO2 nearly by 0, also they increase the road safety because of the minor veichles
+	travelling on road.<br/>
+	- Better product quality: not having to be packaged, labeled, distributed and sold, they are still fresh with the certainty
+	  whether it is food national, regional or rather, what now quite rare, especially with something that regards to fruit and vegetables, which is often
+	  coming from the other side of the world;<br/>
+	- sustainability: in terms of support to local communities.<br/>
+	- Then there is also an interesting cultural aspect: the approach of the consumer to the rural reality allows a direct contact with the
+	nature, animals, the earth and the knowledge of the products we offer, giving more meaning to the passing of the season s that we offer fruit
+	and vegetables are always different.<br/>
+	Unfortunately it is not easy to make an expenditure "complete" according to our standards of spoiled consumers used to having everything and always a lot of products
+	agriculture are related to climatic zones and territory, but the multiple distribution channels agriculture Km Zero, tempt and help everyone involved.<br/>
+	 So you can find the products at the farms, village markets, mechanical distributors working by coins, markets specially created or finally, calling on the GAS, the joint purchasing groups.</p>
+     
+     
+     <div style="position:absolute; left:0%; top:98%; width:100%; height:10%; background:#a6cb53;"></div>
+	
+	<h1 id="how" style="font-family:'Hangyaboly'; font-size:48px; color:#000; font-weight:bold; position:absolute; top:113%; left:33%;">How does it works?</h1> 
+    
+	<p style="position:relative; top:130%; font-size:28px; left:15%; width:70%; text-align:justify; color:#fff; ">This project is offered as a search engine that allows the end-user
+	to find out the main informations about the farming and enviormental Km Zero. <br />
+	This web application is based on many opensource resources as Google Maps, DataSets where are lstored the informations grouped by districs of the Regione Veneto.</p>
+    
+	<h1 id="future" style="font-family:'Hangyaboly'; font-size:48px; font-weight:bold; color: #000; position:absolute; left:33%; top:214%;">Future development</h1> 
+    
+	<p style="position:absolute; top:223%; font-size:23px; left:15%; width:70%; text-align:justify; color:#fff; ">The future developments are oriented to increase the mole of
+	 information that the end-user can obtain from this application. This web service will be upgraded and will be stored there informations
+	 about many categories and the search will be extended to the nationals or worlds surface. The final enviorment of this service is to offer
+	 to the end-user the experience of an innovative search which finds any kind of informations around you such as knowing the place of birth
+	 of famous people or finding a farmed product.</p>
+     
+     <div style="position:absolute; left:0%; top:0%; width:100%; height:10%; background:#a6cb53;"></div>
+<div style="position:absolute; left:0%; top:10%; width:100%; height:1%; background:#558836;"></div>
+<a id="Tointro"><button class="css3button" style=" font-size:25px; position:absolute; top:0%; left:2.5%; width:13%; height:9%; cursor:pointer;">Introduction</button></a>
+	<a id="Tohow"><button class="css3button" style=" font-size:25px; position:absolute; top:0%; left:18%; width:24%; top:0%; height:9%; cursor:pointer;">How does it work?</button></a>
+	<a id="Tofuture"><button class="css3button" style=" font-size:25px; position:absolute; top:0%; left:44%; width:23%; height:9%; cursor:pointer;">Future development</button></a>
+	<a id="Tohelp"><button class="css3button" style=" font-size:25px; position:absolute; top:0%; left:68%; width:13%; height:9%; cursor:pointer;">Help</button></a>
+    <a href="Map.php"><button class="css3button" style=" font-size:25px; position:absolute; top:0%; left:83%; width:16%; height:9%; cursor:pointer;">Go to Map</button></a>
+     
+     
+	<h1 id="help" style="font-family:'Hangyaboly'; font-size:48px; font-weight:bold; position:absolute; top:320%; left:38%; color:#000;">Help</h1>
+	<div align="center" style="position:absolute; width:60%; top:360%; left:20%;">
+		<img src="immagini/ScreenPage.png" type="image/png" style="width:100%;"  />
+	</div> 
+	<p style="position:absolute; top:342%; font-size:24px; left:2.5%; width:95%; text-align:justify; color:#fff; ">This represents the main page of our web application, it is user-friendly, you have only to type your home town and the radius of the range of the research.</p>
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script>
+$("#Tohow").click(function()
+{
+	var point=$("#how").offset().top;
+	$('body,html').animate({scrollTop: point}, 800);
+});
+$("#Tointro").click(function()
+{
+	var point=$("#intro").offset().top;
+	$('body,html').animate({scrollTop: point}, 800);
+});
+$("#Tofuture").click(function()
+{
+	var point=$("#future").offset().top;
+	$('body,html').animate({scrollTop: point}, 800);
+});
+$("#Tohelp").click(function()
+{
+	var point=$("#help").offset().top;
+	$('body,html').animate({scrollTop: point}, 800);
+});
+
+</script>
+
+</body>
+
+</html>
