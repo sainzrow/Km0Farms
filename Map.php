@@ -45,6 +45,37 @@
 	 text-align:center;
 	 position:absolute; 
 }
+button.css3button 
+		{
+			font-family: Hangyaboly;
+			font-size: 20px;
+			color: #ffffff;
+			padding: 10px 20px;
+			background: -moz-linear-gradient(
+				top,
+				#558836 0%,
+				#558836);
+			background: -webkit-gradient(
+				linear, left top, left bottom,
+				from(#558836),
+				to(#558836));
+			-moz-border-radius: 10px;
+			-webkit-border-radius: 10px;
+			border-radius: 10px;
+			border: 3px solid #558836;
+			-moz-box-shadow:
+				0px 1px 3px rgba(000,000,000,0.5),
+				inset 0px 0px 3px rgba(85,136,54,1);
+			-webkit-box-shadow:
+				0px 1px 3px rgba(000,000,000,0.5),
+				inset 0px 0px 3px rgba(85,136,54,1);
+			box-shadow:
+				0px 1px 3px rgba(000,000,000,0.5),
+				inset 0px 0px 3px rgba(85,136,54,1);
+			text-shadow:
+				0px -1px 0px rgba(000,000,000,0.2),
+				0px 1px 0px rgba(85,136,54,1);
+		}
 
 </style>
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
@@ -55,11 +86,13 @@
 
 <body>
     <div id="map-canvas" style="position:absolute; left:0%; width:100%; height: 80%; top:20%;"></div>
-    <img style="position:absolute; left:89%; width:10%; top:2%;" src="immagini/Logo.png" alt="" />
+    <a href="index.html"><img style="position:absolute; left:89%; width:10%; top:2%;" src="immagini/Logo.png" alt="" /></a>
     <div style="position:absolute; height:80%; top:20%; background:#558836; right:0%; width:17%; opacity:0.8;" ></div>
-    <div style=" font-family:'Hangyaboly'; font-weight:bold; position:absolute; left:65%; width:30%; height:10%; top:6%; color:#558836; font-size:60px;">Km0Farms</div>
+    <a href="index.html"><div style=" font-family:'Hangyaboly'; font-weight:bold; position:absolute; left:65%; width:30%; height:10%; top:6%; color:#558836; font-size:60px;">Km0Farms</div></a>
     <div style="position:absolute; left:0%; width:100%; height:2%; top:18%; background:#558836;"></div>
-    <p style="font-family:'Hangyaboly'; font-weight:bold; position:absolute; font-size:30px; left:2.5%; top:5%; width:48%; height:5%; color:#558836;">Highest number of districts: <input type="number" id="Number" style="font-family:'Hangyaboly'; font-weight:bold; color:#558836; font-size:25px; position:absolute; left:75%; width:25%; height:100%; top:0%;" min="0" max="540" value="5"/></p>
+    <p style="font-family:'Hangyaboly'; font-weight:bold; position:absolute; font-size:30px; left:2.5%; top:5%; width:48%; height:5%; color:#558836;">District to search: <input type="text" id="District" style="font-family:'Hangyaboly'; font-weight:bold; color:#558836; font-size:25px; position:absolute; left:55%; width:25%; height:100%; top:0%;" /></p><button style="position:absolute; top:5%; height:10%; width:10%; left:42.5%; cursor:pointer;" id="Search" class="css3button">Search</button>
+    
+<div style="top:20%; left:0%; cursor:auto;" id="label" class="mapBtn">farms</div>
 
 <div style="top:20%;" id="btn0" class="mapBtn">farms</div>
 <div style="top:28%;" id="btn1" class="mapBtn">biological farms</div>
@@ -73,7 +106,7 @@
 <div style="top:92%;" id="btn9" class="mapBtn">forests</div>
 <script>
 	var Agrimap = new Array();
-	var MaxDimension=5;
+	var Type="btn0";
 	
 	
 	var styles = [
@@ -172,6 +205,7 @@
 	
 	function DrawPlaces()
 	{
+		document.getElementById("District").style.background="#fff";
 		for(var i=0; i < Agrimap.length; i++)
 		{
 			if(i==0)
@@ -241,7 +275,6 @@
 		
 		$.get("Search.php",{Type:'btn0'}, function(data)
 		{
-			
 			for (var i = 0; i < data.length; i++) 
 			{
 				var d = data[i];
@@ -287,39 +320,50 @@
 	
 	$("#Search").click( function()
 	{
-		$.get("Search.php",{Type:this.id}, function(data)
+		document.getElementById("label").innerHTML=document.getElementById(Type).innerHTML;
+		var district=document.getElementById("District").value;
+		$.get("Search.php",{Type:'', District:district, NewType:Type}, function(data)
 		{
-			var myOptions = 
+			if(data.length>0)
 			{
-				zoom: 8,
-				center: new google.maps.LatLng(45.765683, 11.728782),
-				mapTypeId: google.maps.MapTypeId.ROADMAP,
-				styles: styles, 
-				disableDoubleClickZoom: true,
-				disableDefaultUI: true
-			};
-			
-			map = new google.maps.Map(document.getElementById('map-canvas'), myOptions);
-			
-			Agrimap=new Array();
-			for (var i = 0; i < data.length; i++) 
-			{
-				var d = data[i];
+				var myOptions = 
+				{
+					zoom: 8,
+					center: new google.maps.LatLng(45.765683, 11.728782),
+					mapTypeId: google.maps.MapTypeId.ROADMAP,
+					styles: styles, 
+					disableDoubleClickZoom: true,
+					disableDefaultUI: true
+				};
 				
-				Agrimap.push({
-			  	center: new google.maps.LatLng(d.lat,d.lng),
-			  	population: d.population,
-			  	name: d.comune
-				});
+				map = new google.maps.Map(document.getElementById('map-canvas'), myOptions);
+				
+				Agrimap=new Array();
+				for (var i = 0; i < data.length; i++) 
+				{
+					var d = data[i];
+					
+					Agrimap.push({
+					center: new google.maps.LatLng(d.lat,d.lng),
+					population: d.population,
+					name: d.comune
+					});
+				}
+				
+				DrawPlaces();
 			}
-			
-			DrawPlaces();
+			else
+			{
+				document.getElementById("District").style.background="#F4A460";
+			}
 			
 		}, 'json');
 	});
 		
 	$(".mapBtn").click( function()
 	{
+		Type=this.id;
+		document.getElementById("label").innerHTML=document.getElementById(Type).innerHTML;
 		$.get("Search.php",{Type:this.id}, function(data)
 		{
 			var myOptions = 
@@ -350,7 +394,6 @@
 			
 		}, 'json');
 	});
-
 
 </script>
 </body>

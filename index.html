@@ -111,7 +111,7 @@
 	 to the end-user the experience of an innovative search which finds any kind of informations around you such as knowing the place of birth
 	 of famous people or finding a farmed product.</p>
      
-     <div style="position:absolute; left:0%; top:0%; width:100%; height:10%; background:#a6cb53;"></div>
+     <div id="headBar" style="position:absolute; left:0%; top:0%; width:100%; height:10%; background:#a6cb53;"></div>
 <div style="position:absolute; left:0%; top:10%; width:100%; height:1%; background:#558836;"></div>
 <a id="Tointro"><button class="css3button" style=" font-size:25px; position:absolute; top:0%; left:2.5%; width:13%; height:9%; cursor:pointer;">Introduction</button></a>
 	<a id="Tohow"><button class="css3button" style=" font-size:25px; position:absolute; top:0%; left:18%; width:24%; top:0%; height:9%; cursor:pointer;">How does it work?</button></a>
@@ -124,7 +124,10 @@
 	<div align="center" style="position:absolute; width:60%; top:360%; left:20%;">
 		<img src="immagini/ScreenPage.png" type="image/png" style="width:100%;"  />
 	</div> 
-	<p style="position:absolute; top:342%; font-size:24px; left:2.5%; width:95%; text-align:justify; color:#fff; ">This represents the main page of our web application, it is user-friendly, you have only to type your home town and the radius of the range of the research.</p>
+	<p style="position:absolute; top:342%; font-size:24px; left:2.5%; width:95%; text-align:justify; color:#fff; ">This represents the main page of our web application, it is user-friendly, you have only to type your home town for the research.</p>
+    
+    <div id="GoUp" style="position:fixed; left:84%; width:10%; top:84%; cursor:pointer;"><img src="immagini/Arrow.png" style="width:100%;" /></div>
+  
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 <script>
 $("#Tohow").click(function()
@@ -146,6 +149,10 @@ $("#Tohelp").click(function()
 {
 	var point=$("#help").offset().top;
 	$('body,html').animate({scrollTop: point}, 800);
+});
+$("#GoUp").click(function()
+{
+	$('body,html').animate({scrollTop: 0}, 800);
 });
 
 </script>
